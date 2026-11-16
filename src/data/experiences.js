@@ -1,0 +1,88 @@
+// Six chapters for the Experience page, written as an editorial story.
+
+export const EXPERIENCES = [
+  {
+    id: 'descent',
+    number: '01',
+    title: 'The *descent*',
+    kicker: 'Departure · 0 m',
+    depthLabel: '0 m',
+    body: [
+      'Every dive starts with a sound: the hatch seal clicking shut. After that the world outside shrinks to a round window and a number that keeps climbing.',
+      'We sink at thirty metres a minute. It is slow enough to notice the colour changing and fast enough that nobody has time to second-guess it.',
+    ],
+    quote: 'The first ten metres are the last place you remember being dry.',
+    stat: { value: '30 m', label: 'per minute, always' },
+    tone: '#7fb8b4',
+  },
+  {
+    id: 'pressure',
+    number: '02',
+    title: 'Pressure is a *language*',
+    kicker: 'Twilight · 600 m',
+    depthLabel: '600 m',
+    body: [
+      'The hull talks to us. A tick for each ten atmospheres, a long groan when the temperature drops across a thermocline. After a few dives the crew can tell the depth with their eyes closed.',
+      'We stopped treating those sounds as warnings years ago. They are a conversation with a very patient piece of steel.',
+    ],
+    quote: 'Listen to the hull. It has never once lied to us.',
+    stat: { value: '61 atm', label: 'at six hundred metres' },
+    tone: '#4fb3d9',
+  },
+  {
+    id: 'silence',
+    number: '03',
+    title: 'Where the light *ends*',
+    kicker: 'Midnight · 1,000 m',
+    depthLabel: '1,000 m',
+    body: [
+      'At a thousand metres we turn off every light we own and let our eyes adjust. It takes eleven minutes before anything appears. Then, slowly, the water fills with small amber sparks.',
+      'Nobody films this part. The cameras cannot see what a patient human eye can, so we write down what we see by hand.',
+    ],
+    quote: 'Wait eleven minutes and the dark starts to answer.',
+    stat: { value: '11 min', label: 'for eyes to adjust' },
+    tone: '#ff9b2f',
+  },
+  {
+    id: 'light-alive',
+    number: '04',
+    title: 'Light made *alive*',
+    kicker: 'Abyss · 4,400 m',
+    depthLabel: '4,400 m',
+    body: [
+      'Down here light is a chemical, made on purpose. Lanterns use it to lure, jellies use it to startle, and the great pulse colony uses it to keep its thousand bodies in step.',
+      'We spent three seasons recording one colony. We still cannot say what the waves of light are for, only that they never stop.',
+    ],
+    quote: 'Three seasons of recording, and the colony has never skipped a beat.',
+    stat: { value: '7.4 s', label: 'between pulses' },
+    tone: '#2ee6c8',
+  },
+  {
+    id: 'machines',
+    number: '05',
+    title: 'Small machines, *long* patience',
+    kicker: 'Hadal · 8,000 m',
+    depthLabel: '8,000 m',
+    body: [
+      'Our crawlers are the size of a suitcase and move at the speed of a snail. They stay on the trench floor for months, taking one photograph every ten minutes and sending nothing back until we come to collect them.',
+      'Most of what we know about the hadal zone comes from these quiet little machines, not from the dives that get the attention.',
+    ],
+    quote: 'The deepest science is done by whoever can wait the longest.',
+    stat: { value: '14 mo', label: 'longest crawler deployment' },
+    tone: '#e8483a',
+  },
+  {
+    id: 'return',
+    number: '06',
+    title: 'The long *return*',
+    kicker: 'Ascent · 11,000 m to 0 m',
+    depthLabel: '11,000 m',
+    body: [
+      'Going up takes longer than going down, because we spend the whole ascent writing. The log has to be finished before the first daylight reaches the window, or we lose half of it to the excitement.',
+      'When the sun comes back, it is always a little too bright, a little too loud. Nobody says much. Somebody opens a window and the air smells like the world.',
+    ],
+    quote: 'The surface is just another stratum. We have simply forgotten it is strange.',
+    stat: { value: '4 h 10', label: 'average ascent time' },
+    tone: '#ece6d8',
+  },
+];

@@ -1,0 +1,235 @@
+.section {
+  position: relative;
+  z-index: var(--z-content);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-7);
+  padding: var(--space-9) 0 var(--space-6);
+  overflow: hidden;
+}
+
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+  padding: var(--section-pad) 0;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-5);
+  padding: 0 var(--page-gutter);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: 18ch;
+}
+
+.all {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--amber);
+  color: var(--bone);
+  white-space: nowrap;
+  transition: gap var(--dur-base) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.all:hover {
+  gap: var(--space-4);
+  color: var(--amber);
+}
+
+/* ---------- Track ---------- */
+.window {
+  overflow: hidden;
+}
+
+.scroller {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.scroller::-webkit-scrollbar {
+  display: none;
+}
+
+.track {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--grid-gap);
+  width: max-content;
+  padding: 0 var(--page-gutter);
+  will-change: transform;
+}
+
+.item {
+  flex: none;
+  scroll-snap-align: center;
+}
+
+/* Editorial stagger: every other panel sits lower */
+.item:nth-child(even) {
+  margin-top: var(--space-8);
+}
+
+/* ---------- Panel ---------- */
+.panel {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: clamp(18rem, 38vw, 34rem);
+  height: clamp(22rem, 52vh, 40rem);
+  padding: var(--space-6);
+  border: var(--hairline);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+  overflow: hidden;
+  color: var(--bone);
+}
+
+.art {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  transition: transform 1.4s var(--ease-out);
+}
+
+.panel:hover .art {
+  transform: scale(1.08);
+}
+
+/* One generated look per stratum, built only from CSS gradients */
+[data-variant='caustic'] .art {
+  background:
+    radial-gradient(60% 40% at 30% 25%, color-mix(in srgb, var(--accent) 55%, transparent), transparent 70%),
+    repeating-conic-gradient(from 0deg at 70% 30%, transparent 0 14deg, color-mix(in srgb, var(--accent) 18%, transparent) 14deg 16deg);
+}
+
+[data-variant='ribbon'] .art {
+  background:
+    repeating-linear-gradient(100deg, transparent 0 22px, color-mix(in srgb, var(--accent) 35%, transparent) 22px 24px),
+    linear-gradient(to top, transparent, color-mix(in srgb, var(--accent) 22%, transparent));
+}
+
+[data-variant='lantern'] .art {
+  background:
+    radial-gradient(circle at 25% 30%, var(--accent) 0 3px, transparent 4px),
+    radial-gradient(circle at 70% 20%, var(--accent) 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 55%, var(--accent) 0 4px, transparent 5px),
+    radial-gradient(circle at 20% 70%, var(--accent) 0 2px, transparent 3px),
+    radial-gradient(circle at 80% 65%, var(--accent) 0 3px, transparent 4px),
+    radial-gradient(40% 30% at 55% 55%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 70%);
+}
+
+[data-variant='colony'] .art {
+  background:
+    radial-gradient(circle at 12% 62%, var(--accent) 0 6px, transparent 8px),
+    radial-gradient(circle at 32% 55%, var(--accent) 0 8px, transparent 10px),
+    radial-gradient(circle at 52% 64%, var(--accent) 0 6px, transparent 8px),
+    radial-gradient(circle at 72% 56%, var(--accent) 0 9px, transparent 11px),
+    radial-gradient(circle at 90% 63%, var(--accent) 0 6px, transparent 8px),
+    linear-gradient(to top, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%);
+}
+
+[data-variant='vent'] .art {
+  background:
+    radial-gradient(70% 45% at 50% 100%, var(--accent), transparent 70%),
+    linear-gradient(to top, color-mix(in srgb, var(--accent) 30%, transparent), transparent 65%);
+}
+
+/* Big outlined number */
+.num {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-5);
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 3rem + 8vw, 11rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--accent) 60%, transparent);
+  pointer-events: none;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  max-width: 24rem;
+}
+
+.info .mono {
+  color: var(--accent);
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+}
+
+.tagline {
+  color: var(--bone-dim);
+  font-size: var(--fs-body-sm);
+}
+
+.go {
+  position: absolute;
+  top: var(--space-5);
+  left: var(--space-5);
+  color: var(--accent);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.panel:hover .go {
+  transform: translate(4px, -4px);
+}
+
+/* ---------- Progress ---------- */
+.progress {
+  height: 1px;
+  margin: 0 var(--page-gutter);
+  background: var(--mist);
+}
+
+.progressFill {
+  display: block;
+  height: 100%;
+  background: var(--amber);
+  transform-origin: left;
+}
+
+@media (max-width: 768px) {
+  .head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .panel {
+    width: 82vw;
+    height: 26rem;
+  }
+}

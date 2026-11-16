@@ -1,0 +1,46 @@
+/* Safety net: no accidental sideways scroll on any page */
+html {
+  overflow-x: clip;
+}
+
+/* Anchors / focus targets stay clear of the fixed header */
+:target,
+[id] {
+  scroll-margin-top: 6rem;
+}
+
+/* Comfortable tap targets on touch devices */
+@media (pointer: coarse) {
+  a,
+  button {
+    min-height: 44px;
+  }
+  .mono {
+    letter-spacing: 0.1em;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  :root {
+    --page-gutter: 1rem;
+  }
+}
+
+/* Large screens: let editorial type breathe, not stretch forever */
+@media (min-width: 1800px) {
+  :root {
+    --content-max: 1760px;
+  }
+}
+
+/* Print: plain and readable */
+@media print {
+  canvas {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+}

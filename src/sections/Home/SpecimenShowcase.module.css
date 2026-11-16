@@ -1,0 +1,132 @@
+.section {
+  position: relative;
+  z-index: var(--z-content);
+  padding: var(--section-pad) var(--page-gutter);
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1.2fr);
+  gap: var(--grid-gap);
+  align-items: stretch;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border-top: var(--hairline);
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  align-items: baseline;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-4) 0;
+  border-bottom: var(--hairline);
+  color: var(--bone-faint);
+  text-align: left;
+  transition: color var(--dur-fast) var(--ease-out), padding var(--dur-base) var(--ease-out);
+}
+
+.item .mono {
+  color: inherit;
+}
+
+.item:hover {
+  color: var(--bone);
+}
+
+.current {
+  color: var(--bone);
+  padding-left: var(--space-3);
+  box-shadow: inset 2px 0 0 var(--dot);
+}
+
+.itemName {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: 1.1;
+}
+
+.stage {
+  position: relative;
+  min-height: clamp(22rem, 55vh, 36rem);
+  border: var(--hairline);
+  border-radius: var(--radius-md);
+  background: radial-gradient(60% 60% at 50% 50%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 75%), rgba(4, 8, 12, 0.55);
+  overflow: hidden;
+  touch-action: pan-y;
+  transition: background var(--dur-slow) var(--ease-out);
+}
+
+.stage canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.hint {
+  position: absolute;
+  left: var(--space-5);
+  bottom: var(--space-4);
+  color: var(--bone-faint);
+  pointer-events: none;
+}
+
+.info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.card > .mono {
+  color: var(--accent);
+}
+
+.latin {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-body-lg);
+  color: var(--accent);
+}
+
+.fact {
+  padding-top: var(--space-4);
+  border-top: var(--hairline);
+  font-size: var(--fs-body-sm);
+  color: var(--bone-faint);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .stage {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .itemStratum {
+    display: none;
+  }
+}

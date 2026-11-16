@@ -1,0 +1,174 @@
+.story {
+  position: relative;
+  height: calc(var(--chapters, 5) * 100vh);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: calc(var(--space-9) + var(--space-2)) var(--page-gutter) var(--space-6);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Keeps text readable over the 3D scene */
+.sticky::before {
+  content: '';
+  position: absolute;
+  inset: 0 40% 0 -10%;
+  background: radial-gradient(90% 70% at 20% 70%, rgba(4, 8, 12, 0.6), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-4);
+}
+
+.depth {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-1);
+  margin: 0;
+}
+
+.number {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 1.2rem + 2vw, 3rem);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  color: var(--bone);
+}
+
+.stage {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: var(--space-6);
+}
+
+.chapter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-4);
+  max-width: 38rem;
+}
+
+.index {
+  color: var(--accent);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.name {
+  max-width: 10ch;
+}
+
+.tagline {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  color: var(--accent);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.range {
+  color: var(--bone-faint);
+}
+
+.more {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--accent);
+  color: var(--bone);
+  transition: gap var(--dur-base) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+
+.more:hover {
+  gap: var(--space-4);
+  color: var(--accent);
+}
+
+/* ---------- Progress rail ---------- */
+.rail {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-3);
+}
+
+.tick {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-1);
+  width: 100%;
+  padding: var(--space-3) 0 0;
+  color: var(--bone-faint);
+  text-align: left;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.tick .mono {
+  color: inherit;
+}
+
+.tick:hover {
+  color: var(--bone);
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--mist-strong);
+}
+
+.bar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--tick);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-slow) var(--ease-out);
+}
+
+.current {
+  color: var(--bone);
+}
+
+.current .bar::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 900px) {
+  .sticky::before {
+    inset: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .tickName {
+    display: none;
+  }
+  .rail {
+    gap: var(--space-2);
+  }
+  .name {
+    max-width: none;
+  }
+}

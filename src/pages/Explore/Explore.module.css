@@ -1,0 +1,13 @@
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: calc(var(--space-10) + var(--space-4)) var(--page-gutter) var(--space-8);
+}
+
+.intro :global(.display) {
+  max-width: 11ch;
+}

@@ -1,0 +1,16 @@
+.wrap {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-canvas);
+  background: var(--abyss);
+  pointer-events: none;
+}
+
+/* Soft vignette so text stays readable at the edges */
+.wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(120% 90% at 50% 45%, transparent 55%, rgba(4, 8, 12, 0.7));
+  pointer-events: none;
+}

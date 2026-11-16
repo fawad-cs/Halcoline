@@ -1,0 +1,19 @@
+.panel {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-transition);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.amber {
+  background: var(--amber);
+}
+
+.trench {
+  background: var(--trench-2);
+}
+
+.abyss {
+  background: var(--abyss);
+}

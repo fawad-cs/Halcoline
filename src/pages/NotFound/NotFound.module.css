@@ -1,0 +1,91 @@
+.wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-5);
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: var(--space-10) var(--page-gutter);
+  text-align: center;
+  overflow: hidden;
+}
+
+.title {
+  max-width: 10ch;
+}
+
+.wrap :global(.body-lg) {
+  margin: 0 auto;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+/* Sonar sweeping out of the centre */
+.rings {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.rings span {
+  grid-area: 1 / 1;
+  width: min(90vw, 70rem);
+  aspect-ratio: 1;
+  border: 1px solid var(--biolume);
+  border-radius: 50%;
+  opacity: 0;
+  animation: ping 6s var(--ease-out) infinite;
+}
+
+.rings span:nth-child(2) {
+  animation-delay: 2s;
+}
+
+.rings span:nth-child(3) {
+  animation-delay: 4s;
+}
+
+/* A faint contact that never quite resolves */
+.blip {
+  grid-area: 1 / 1;
+  width: 10px;
+  height: 10px;
+  margin: 0 0 22vmin 26vmin;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: var(--glow-amber);
+  animation: blink 6s ease-in-out infinite;
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(0.05);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%,
+  35%,
+  100% {
+    opacity: 0;
+  }
+  45%,
+  60% {
+    opacity: 1;
+  }
+}

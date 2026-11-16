@@ -1,0 +1,22 @@
+.root {
+  display: block;
+}
+
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  /* room for descenders, cancelled by the negative margin */
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+  margin-right: 0.25em;
+  vertical-align: top;
+}
+
+.word {
+  display: inline-block;
+}
+
+.emphasis {
+  font-style: italic;
+  color: var(--amber);
+}

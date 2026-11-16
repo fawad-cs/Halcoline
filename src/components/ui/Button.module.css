@@ -1,0 +1,70 @@
+.button {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono-sm);
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+
+/* Fill that sweeps up from the bottom on hover */
+.button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--fill);
+  transform: translateY(101%);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.button:hover::before,
+.button:focus-visible::before {
+  transform: translateY(0);
+}
+
+.solid {
+  --fill: var(--bone);
+  background: var(--amber);
+  color: var(--abyss);
+  border: 1px solid var(--amber);
+}
+
+.solid:hover {
+  border-color: var(--bone);
+}
+
+.ghost {
+  --fill: var(--amber);
+  background: transparent;
+  color: var(--bone);
+  border: var(--hairline-strong);
+}
+
+.ghost:hover {
+  color: var(--abyss);
+  border-color: var(--amber);
+}
+
+.arrow {
+  flex-shrink: 0;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.button:hover .arrow {
+  transform: translate(3px, -3px);
+}
+
+.button:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}

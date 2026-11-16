@@ -1,0 +1,66 @@
+.cta {
+  position: relative;
+  z-index: var(--z-content);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  padding: calc(var(--section-pad) * 1.2) var(--page-gutter);
+  text-align: center;
+  overflow: hidden;
+}
+
+.title {
+  max-width: 12ch;
+  margin: 0 auto;
+}
+
+.cta :global(.body-lg) {
+  margin: 0 auto;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+/* Slow sonar rings behind the text */
+.rings {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.rings span {
+  grid-area: 1 / 1;
+  width: min(80vw, 60rem);
+  aspect-ratio: 1;
+  border: 1px solid var(--biolume);
+  border-radius: 50%;
+  opacity: 0;
+  animation: ping 9s var(--ease-out) infinite;
+}
+
+.rings span:nth-child(2) {
+  animation-delay: 3s;
+}
+
+.rings span:nth-child(3) {
+  animation-delay: 6s;
+}
+
+@keyframes ping {
+  0% {
+    transform: scale(0.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}

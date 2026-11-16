@@ -1,0 +1,115 @@
+.footer {
+  position: relative;
+  z-index: var(--z-content);
+  padding: var(--section-pad) var(--page-gutter) var(--space-6);
+  background: linear-gradient(to bottom, transparent, var(--stratum-hadal) 70%);
+  border-top: var(--hairline);
+  overflow: hidden;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-6);
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.cta {
+  max-width: 14ch;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: var(--space-7) var(--grid-gap);
+  align-items: start;
+  max-width: var(--content-max);
+  margin: var(--space-10) auto 0;
+  padding-top: var(--space-7);
+  border-top: var(--hairline);
+}
+
+.columns h3 {
+  margin-bottom: var(--space-4);
+  color: var(--bone-faint);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.link {
+  display: inline-block;
+  color: var(--bone);
+  transition: color var(--dur-fast) var(--ease-out),
+    transform var(--dur-base) var(--ease-out);
+}
+
+.link:hover {
+  color: var(--amber);
+  transform: translateX(6px);
+}
+
+.surface {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border: var(--hairline-strong);
+  border-radius: var(--radius-pill);
+  color: var(--bone);
+  transition: border-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.surface:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.surface .mono {
+  color: inherit;
+}
+
+.wordmark {
+  margin: var(--space-9) 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 0.5rem + 17vw, 22rem);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  text-align: center;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--mist-strong);
+  user-select: none;
+}
+
+.legal {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  max-width: var(--content-max);
+  margin: var(--space-7) auto 0;
+}
+
+@media (max-width: 900px) {
+  .columns {
+    grid-template-columns: 1fr 1fr;
+  }
+  .surface {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}
+
+@media (max-width: 640px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+  .legal {
+    flex-direction: column;
+  }
+}
